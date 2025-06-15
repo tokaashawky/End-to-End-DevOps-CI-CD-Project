@@ -1,0 +1,14 @@
+- hosts: reverse_proxy
+  become: yes
+  roles:
+    - reverse_proxy
+
+- hosts: backend
+  become: yes
+  roles:
+    - backend
+
+- hosts: jenkins
+  become: yes
+  roles:
+    - jenkins

@@ -1,0 +1,12 @@
+[bastion]
+bastion ansible_host=3.123.123.123
+
+[reverse_proxy]
+proxy-1 ansible_host=10.0.0.101
+
+[backend]
+backend-1 ansible_host=10.0.1.101
+backend-2 ansible_host=10.0.3.101
+
+[jenkins]
+jenkins ansible_host=10.0.0.201

@@ -1,0 +1,15 @@
+[Unit]
+Description=Node.js App
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/app
+ExecStart=/usr/bin/npm start
+Restart=always
+Environment=DB_HOST={{ lookup('env','DB_HOST') }}
+Environment=REDIS_HOST={{ lookup('env','REDIS_HOST') }}
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

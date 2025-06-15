@@ -1,0 +1,25 @@
+- name: Install Docker
+  apt:
+    name: [docker.io]
+    state: present
+
+- name: Add user to Docker group
+  user:
+    name: ubuntu
+    groups: docker
+    append: yes
+
+- name: Copy Dockerfile
+  copy:
+    src: files/Dockerfile
+    dest: /home/ubuntu/Dockerfile
+
+- name: Deploy docker-compose
+  template:
+    src: docker-compose.yml.j2
+    dest: /home/ubuntu/docker-compose.yml
+
+- name: Start Jenkins
+  command: docker-compose up -d
+  args:
+    chdir: /home/ubuntu
