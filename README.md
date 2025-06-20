@@ -68,4 +68,20 @@ git config --global user.name <your github user name>
 git config --global user.email <your github email>
 ```
 
+### Step 2: CREATE AWS Resources
+#### Create an IAM user with AdministratorAccess for testing purposes and generate the AWS Access key
+#### Create Github Repo Secret for iac
+1. **Navigate to Your GitHub iac Repository**
+2. **Access the Repository Settings**
+3. **Open the Secrets Section:Actions**
+4. **Add a New Secret:**
+   - Use **AWS_ACCESS_KEY_ID**.
+5. **Save the Secret:**
+   Actions workflows using the **${{ secrets.AWS_ACCESS_KEY_ID }}** syntax,\
+   where **AWS_ACCESS_KEY_ID** is the name you gave your secret.\
+   Do same for the **AWS_SECRET_ACCESS_KEY**, add the Secret and save
+   ![](./Images/secrets.png)
+6. **Repeat 1-5 for app code repository**
 
+#### Create S3 Bucket for Terraform State files 
+#### Create key pair: Create key pair for SSHing into the jumphost in .pem format and download it in your local machine
